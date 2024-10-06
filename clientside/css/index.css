@@ -1,0 +1,36 @@
+*{
+margin: 0;
+padding: 0;
+}
+.navbar{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.053);
+}
+.navbar img{
+    width: 50px;
+}
+.dropdown{
+    height: 5vh;
+    width: 38px;
+    background-color: rgba(3, 1, 1, 0.292);
+    border-radius: 50px;
+}
+.navbar input{
+    width: 50%;
+    height: 5vh;
+    border: 2px solid black;
+}
+.search{
+    display: flex;
+    align-items: center;
+    width: 79%;
+}
+.search img{
+    background-color: black;
+    height: 5.46vh;
+    width: 40px;
+}
