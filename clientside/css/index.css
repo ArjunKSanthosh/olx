@@ -13,12 +13,18 @@ padding: 0;
 .navbar img{
     width: 50px;
 }
-.dropdown{
+.container{
     height: 5vh;
-    width: 38px;
+    width: 35px;
     background-color: rgba(3, 1, 1, 0.292);
     border-radius: 50px;
 }
+.container img{
+    height: 5vh;
+    width: 35px;
+    border-radius: 50px;
+
+} 
 .navbar input{
     width: 50%;
     height: 5vh;
@@ -34,9 +40,17 @@ padding: 0;
     height: 5.46vh;
     width: 40px;
 }
-.navbar button{
+.bt1 button{
     padding: 10px 15px;
     border-radius: 50px;
+    font-weight: bolder;
+    border: 5px solid orange;
+}.dropdown{
+    border: 1px solid black;
+    width: 150px;                       
+}
+.dropdown-option button{
+    padding: 5px 15px;
     font-weight: bolder;
     border: 5px solid orange;
 }

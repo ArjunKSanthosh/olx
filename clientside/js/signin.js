@@ -1,4 +1,3 @@
-
 document.getElementById("signin").addEventListener("submit",async(e)=>{
     e.preventDefault();
     const email=document.getElementById("email").value;
@@ -18,10 +17,11 @@ document.getElementById("signin").addEventListener("submit",async(e)=>{
             window.location.href="../index.html"
         }
         else if(res.status==404){
-            alert("error")
+            alert("error2")
+            window.location.href="../pages/signup.html"
         }
         else{
-            alert("error")
+            alert("error1")
         }
         
     }).catch((error)=>{
