@@ -6,20 +6,23 @@ async function getProducts() {
         "Authorization" : `Bearer ${value}`}})
         const result=await res.json();
         if(res.status==200){
-            if(result.profile)
+            if(result.profile){
                 document.getElementById("profileImage").src=result.profile;
+                document.getElementById("proi").src=result.profile;
+
+            }
             document.getElementById("next").innerHTML=`<a href="./pages/profile.html?id=${result.id}"><button>View or Edit Profile</button></a>`;
-            str=``;
-            result.products.map((product)=>{
-                str=`
-                <div class="product">
-                    <a href="">
-                        <img src="${product.pname}" alt="">
-                        <h2>Name</h2>
-                    </a>
-                </div>
-                `
-            })
+            // str=``;
+            // result.products.map((product)=>{
+            //     str=`
+            //     <div class="product">
+            //         <a href="">
+            //             <img src="${product.pname}" alt="">
+            //             <h2>Name</h2>
+            //         </a>
+            //     </div>
+            //     `
+            // })
             document.getElementById("products").innerHTML=str;
         }
         else{

@@ -13,7 +13,7 @@ export async function getProducts(req,res) {
         if(!user) 
             return res.status(403).send({msg:"Unauthorized access"})
         // const employees=await employSchema.find();
-        res.status(200).send({username:user.username})
+        res.status(200).send({id:user._id,profile:user.profile})
         
     } catch (error) {
         res.status(404).send({msg:error})
@@ -24,6 +24,15 @@ export async function getUser(req,res) {
     try {
         const {id}=req.params;
         const data=await userSchema.findOne({_id:id});
+        res.status(200).send(data);  
+    } catch (error) {
+        res.status(404).send(error)
+    }
+}
+export async function editUser(req,res) {
+    try {
+        const {id}=req.params;
+        const data=await userSchema.findOne({_id:id});
         res.status(200).send(data);
     } catch (error) {
         res.status(404).send(error)
@@ -31,7 +40,7 @@ export async function getUser(req,res) {
 }
 export async function signUp(req,res) {
     try{
-        const {email,username,password,cpassword } = req.body;
+        const {email,username,password,cpassword,place,profile,address,phone,pincode} = req.body;
         console.log(email,username,password,cpassword);
         if(!(email&& username&& password&& cpassword))
             return res.status(404).send({msg:"fields are empty"})
@@ -42,7 +51,7 @@ export async function signUp(req,res) {
         .then((hashedPassword)=>{
             console.log(hashedPassword);
             userSchema
-            .create({email,username,password:hashedPassword})
+            .create({email,username,password:hashedPassword,place,profile,address,phone,pincode})
             .then(()=>{
                 console.log("success");
                 return res.status(201).send({msg:"successs"})

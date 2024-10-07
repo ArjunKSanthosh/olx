@@ -3,58 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
     <link rel="stylesheet" href="../css/signup.css">
-    <title>OLX Sign Up</title>
 </head>
 <body>
-    <div class="container" id="signup">
-        <div class="form-container">
-            <h1>Create Account</h1>
-            <form action="#" method="post">
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" >
-                </div>
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" >
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" >
-                </div>
-                <div class="input-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="cpassword" name="confirm-password" >
-                </div>
-                <div class="input-group">
-                    <label for="place">Place</label>
-                    <input type="text" id="place" name="place" >
-                </div>
-                <div class="input-group">
-                    <label for="address">Address</label>
-                    <textarea name="" id=""></textarea>   
-                </div>
-                <div class="input-group">
-                    <label for="phone">Phone</label>
-                    <input type="textarea" id="phone" name="phone" >
-                </div>
-                <div class="input-group">
-                    <label for="pincode">Pincode</label>
-                    <input type="text" id="pincode" name="pincode" >
-                </div>
-                <div class="form-group">
-                    <label for="profile">Profile Image:</label>
-                    <input type="file" id="profile" name="profile" accept="image/*" >
-                </div>
-                <div id="pro">
+    <div class="container">
+        <h1>User Registration</h1>
+        <form id="signup">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" >
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" >
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" >
+            </div>
+            <div class="form-group">
+                <label for="cpassword">Confirm Password:</label>
+                <input type="password" id="cpassword" name="cpassword" >
+            </div>
+            <div class="form-group">
+                <label for="place">Place:</label>
+                <input type="text" id="place" name="place" >
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" >
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" >
+            </div>
+            <div class="form-group">
+                <label for="profile">Profile Image:</label>
+                <input type="file" id="profile" name="profile" accept="image/*" >
+            </div>
+            <div id="pro">
                 
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
-            <p class="login-link">Already have an account? <a href="#">Sign In</a></p>
-        </div>
+            </div>
+            <button type="submit">Register</button>
+        </form>
     </div>
+    <script src="../js/signup.js"></script>
 </body>
-<script src="../js/signup.js"></script>
 </html>

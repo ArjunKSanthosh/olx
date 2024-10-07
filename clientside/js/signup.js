@@ -1,3 +1,4 @@
+let profile
 document.getElementById("signup").addEventListener("submit",async(e)=>{
     e.preventDefault();
     const username=document.getElementById("username").value;
@@ -6,13 +7,12 @@ document.getElementById("signup").addEventListener("submit",async(e)=>{
     const cpassword=document.getElementById("cpassword").value;
     const place=document.getElementById("place").value;
     const address=document.getElementById("address").value;
-    const phone=document.getElementById("phone").value;
-    const pincode=document.getElementById("pincode").value;
-    console.log(username,email,password,cpassword);
+    const phone=parseInt(document.getElementById("phone").value);
+    const pincode=parseInt(document.getElementById("pincode").value);
     fetch("http://localhost:3000/api/signup",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({username,email,password,cpassword,place,address,phone,pincode})
+        body:JSON.stringify({username,email,password,cpassword,place,profile,address,phone,pincode})
     }).then((res)=>{
         console.log(res);
         if(res.status==201){
