@@ -5,16 +5,29 @@ async function getProducts() {
       const res=await fetch("http://localhost:3000/api/getproducts",{headers:{
         "Authorization" : `Bearer ${value}`}})
         const result=await res.json();
-    if(res.status==200){
-        console.log(result.username);
+        if(res.status==200){
+            if(result.profile)
+                document.getElementById("profileImage").src=result.profile;
+            document.getElementById("next").innerHTML=`<a href="./pages/profile.html?id=${result.id}"><button>View or Edit Profile</button></a>`;
+            str=``;
+            result.products.map((product)=>{
+                str=`
+                <div class="product">
+                    <a href="">
+                        <img src="${product.pname}" alt="">
+                        <h2>Name</h2>
+                    </a>
+                </div>
+                `
+            })
+            document.getElementById("products").innerHTML=str;
+        }
+        else{
+            alert(result.msg);
+            window.location.href="../pages/signin.html"
+        }
     }
-    else{
-        console.log(result.msg);
-        
-        alert(result.msg);
-        window.location.href="../pages/signin.html"
-    }
-}
+
 getProducts();
 function profile() {
     document.getElementById("dropdown").innerHTML=`
@@ -44,3 +57,7 @@ profileImage.addEventListener("click" ,()=>{
         dropdownMenu.style.display='none';
     }
  });
+ function logOut(){
+    localStorage.removeItem("Auth")
+    window.location.href="./index.html"
+ }
