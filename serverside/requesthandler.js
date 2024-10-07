@@ -1,4 +1,3 @@
-
 import userSchema from './models/user.model.js'
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
