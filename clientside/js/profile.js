@@ -7,7 +7,8 @@ console.log(res);
     
     const user=await res.json();
     console.log(user);
-    
+    document.getElementById("sel").innerHTML=` <a href="./addp.html?id=${id}"">+ SELL</a>`;
+
     if(user.profile)
         document.getElementById("profile").src=user.profile;    
     document.getElementById("username").textContent=user.username;
@@ -23,3 +24,9 @@ function logout() {
     localStorage.removeItem("Auth");
     window.location.href="../pages/signin.html"
 }
+async function getProduct(){
+    const res=await fetch(`http://localhost:3000/api/getproduct/${id}`);
+    console.log(res);
+    
+}
+getProduct()

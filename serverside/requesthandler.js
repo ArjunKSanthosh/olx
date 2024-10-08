@@ -1,4 +1,5 @@
 import userSchema from './models/user.model.js'
+import productSchema from './models/product.model.js'
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
 
@@ -91,7 +92,35 @@ export async function signIn(req,res) {
     const token = await sign({userId:user._id},process.env.JWT_KEY,{expiresIn:"24h"});
     console.log(token);
     return res.status(200).send({msg:"successfully logged in",token})
-    
-    
-    
+}
+
+export async function addProduct(req,res){
+    try {
+        const {pname,price,category,description,sellerId,place,images,address,phone,pincode} = req.body;
+        if(!(pname&&price&&category&&description&&sellerId&&place&&images&&address&&phone&&pincode))
+            return res.status(404).send({msg:"fields are empty"})
+        productSchema
+            .create({pname,price,category,description,sellerId,place,images,address,phone,pincode})
+            .then(()=>{
+                console.log("success");
+                return res.status(201).send({msg:"successs"})
+            })
+            .catch((error)=>{
+                console.log("faliure");
+                return res.status(404).send({msg:"product not added"})
+            })
+    } catch (error) {
+        res.status(404).send(error);
+    }
+}
+
+
+export async function getProduct(req,res){
+    try {
+        const {id}=req.params;
+        const products=await productSchema.find({sellerId:id});
+        res.status(200).send(products);
+    } catch (error) {
+        res.status(404).send(error)
+    }
 }

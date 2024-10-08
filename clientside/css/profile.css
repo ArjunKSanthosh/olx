@@ -18,6 +18,10 @@
     font-weight: bold;
     border-right: 4px  double black;
 }
+.right a{
+    text-decoration: none;
+    color: black;
+}
 #profile{
     margin-top: 2%;
     width: 250px;
@@ -68,20 +72,33 @@
 .prod{
     width: 28%;
     height: 37vh;
-    background-color: chocolate;
     object-fit: cover;
-}
+     border-radius: 10px;   
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
 .prod img{
     width: 90%;
     padding-left: 12.5px;
     padding-top: 10px;
+
 }
 .prod h4{
     padding-left: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .prod h2{
     padding-left: 9px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 .right1{
     padding: 10px 15px;
+}
+.bar button{
+    padding: 8px 10px;
+    border-radius: 50px;
+    font-weight: bolder;
+    border: 5px solid orange;
+    margin-left: 50%;
+    margin-top: 3%;
 }

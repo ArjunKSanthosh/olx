@@ -98,3 +98,9 @@ padding: 0;
     height: 5.46vh;
     width: 40px;
 }
+button{
+    padding: 8px 10px;
+    border-radius: 50px;
+    font-weight: bolder;
+    border: 5px solid orange;
+}
