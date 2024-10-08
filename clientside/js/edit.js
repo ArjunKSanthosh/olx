@@ -2,9 +2,12 @@ const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
 let picture;
+let password;
 async function editUser(){
-    const res=await fetch(`http://localhost:3000/api/edituser/${id}`);
+    const res=await fetch(`http://localhost:3000/api/getuser/${id}`);
     const user= await res.json()
+    profile=user.profile;
+    password=user.password
     document.getElementById("edit").innerHTML=`
     <div class="form-group">
                 <label for="email">Email:</label>
@@ -20,7 +23,7 @@ async function editUser(){
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <textarea id="address" name="address">"${user.address}"</textarea>
+                <textarea id="address" name="address">${user.address}"</textarea>
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
@@ -38,36 +41,82 @@ async function editUser(){
                     <img src="${user.profile}" alt="" id="pic4">
 
             </div>
-              <button type="submit">Register</button>
+              <button type="submit">Save</button>
+              
     `
 }
 editUser()
 
+
+// document.getElementById("edit").addEventListener("submit",async(e)=>{
+//     e.preventDefault();
+//         const username=document.getElementById("username").value;
+//         const email=document.getElementById("email").value;
+//         const place=document.getElementById("place").value;
+//         const address=document.getElementById("address").value;
+//         const phone=document.getElementById("phone").value;
+//         const pincode=document.getElementById("pincode").value;
+//         fetch(`http://localhost:3000/api/edituser/${id}`,{
+//         method:"PUT",
+//         headers:{"Content-Type":"application/json"},
+//         body:JSON.stringify({email,username,place,profile,address,phone,pincode,password})
+//     }).then(async(res)=>{
+//         console.log(res);
+
+//         if(res.status==201){
+//             alert("success");
+//             window.location.href="../index.html"
+//         }
+//         else if(res.status==404){
+//             const data=await res.json();
+//             alert(data.msg)
+//         }
+//         else{
+//             alert("error")
+//         }
+        
+//     }).catch((error)=>{
+//         console.log(error);
+        
+//     });
+// })
+
+
+
+
 document.getElementById("edit").addEventListener("submit",async(e)=>{
     e.preventDefault();
-    try {
-        const username=document.getElementById("username").value;
-        const email=document.getElementById("email").value;
-        const place=document.getElementById("place").value;
-        const address=document.getElementById("address").value;
-        const phone=document.getElementById("phone").value;
-        const pincode=document.getElementById("pincode").value;
-    const res=await fetch(`http://localhost:3000/api/edituser/${id}`,{
+    const email=document.getElementById("email").value;
+    const username=document.getElementById("username").value;
+    const place=document.getElementById("place").value;
+    const address=document.getElementById("address").value;
+    const phone=parseInt(document.getElementById("phone").value);
+    const pincode=parseInt(document.getElementById("pincode").value);
+    console.log(username,email,place,profile,address,phone,pincode,password);
+    
+    await fetch(`http://localhost:3000/api/edituser/${id}`,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({email,username,place,profile,address,phone,pincode})
-    })
-    if(res.status==201){
-        alert("Updated")
-        window.location.href="../pages/profile.html"
-    }else{
-        alert("error")
-    }
-    } catch (error) {
+        body:JSON.stringify({username,email,place,profile,address,phone,pincode,password})
+    }).then(async(res)=>{
+        if(res.status==201){
+            alert("success");
+            window.location.href="../index.html"
+        }
+        else if(res.status==404){
+            const data=await res.json();
+            alert(data.msg)
+        }
+        else{
+            alert("error")
+        }
+        
+    }).catch((error)=>{
         console.log(error);
         
-    }
+    });
 })
+
 async function pic(){
     console.log(document.getElementById("profile").files[0]);
     picture=await convertToBase64(document.getElementById("profile").files[0]);

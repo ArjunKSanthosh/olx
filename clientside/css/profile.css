@@ -42,6 +42,7 @@
 .right{
     width: 60%;
     height: 100%;
+    /* background-color: aqua; */
 }
 .details {
     display: flex;
@@ -58,4 +59,29 @@
 }
 #place{
     margin-bottom: 1%;
+}
+.bar{
+    width: 100%;
+    height: 13vh;
+    /* background-color: red; */
+}
+.prod{
+    width: 28%;
+    height: 37vh;
+    background-color: chocolate;
+    object-fit: cover;
+}
+.prod img{
+    width: 90%;
+    padding-left: 12.5px;
+    padding-top: 10px;
+}
+.prod h4{
+    padding-left: 10px;
+}
+.prod h2{
+    padding-left: 9px;
+}
+.right1{
+    padding: 10px 15px;
 }

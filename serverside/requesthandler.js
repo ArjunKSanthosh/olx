@@ -32,8 +32,11 @@ export async function getUser(req,res) {
 export async function editUser(req,res) {
     try {
         const {id}=req.params;
-        const data=await userSchema.findOne({_id:id});
-        res.status(200).send(data);
+        const{...user}=req.body
+        console.log(user);
+        
+        const data=await userSchema.updateOne({_id:id},{$set:{...user}});
+        res.status(201).send(data);
     } catch (error) {
         res.status(404).send(error)
     }
