@@ -13,8 +13,9 @@ export async function getProducts(req,res) {
         console.log(user);
         if(!user) 
             return res.status(403).send({msg:"Unauthorized access"})
-        // const employees=await employSchema.find();
-        res.status(200).send({id:user._id,profile:user.profile})
+        const products=await productSchema.find();
+
+        res.status(200).send({products,id:user._id,profile:user.profile})
         
     } catch (error) {
         res.status(404).send({msg:error})

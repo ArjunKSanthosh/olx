@@ -104,3 +104,35 @@ button{
     font-weight: bolder;
     border: 5px solid orange;
 }
+.listprod{
+    width: 100%;
+    height:auto;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.prod{
+    width: 20%;
+    height: 40vh;
+    object-fit: cover;
+     border-radius: 10px;   
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+     border-bottom: 1px solid yellow;
+    }
+.prod img{
+    width: 90%; 
+    height: 23vh;
+    padding-left: 12.5px;
+    padding-top: 10px;
+    object-fit: cover;
+}
+.prod h4{
+    padding-left: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.prod h2{
+    padding-left: 9px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}

@@ -12,18 +12,19 @@ async function getProducts() {
 
             }
             document.getElementById("next").innerHTML=`<a href="./pages/profile.html?id=${result.id}"><button>View or Edit Profile</button></a>`;
-            // str=``;
-            // result.products.map((product)=>{
-            //     str=`
-            //     <div class="product">
-            //         <a href="">
-            //             <img src="${product.pname}" alt="">
-            //             <h2>Name</h2>
-            //         </a>
-            //     </div>
-            //     `
-            // })
-            document.getElementById("products").innerHTML=str;
+            str=``;
+            result.products.map((product)=>{
+                str+=`
+               <div class="prod">
+                    <img src="${product.images[0]}" alt="image">
+                    <h4 id="name">${product.pname}</h4>
+                    <h2 id="price">${product.price}</h2>
+                    <h4  id="desc">${product.description}</h4>
+
+            </div>
+                `
+            })
+            document.getElementById("listprod").innerHTML=str;
         }
         else{
             alert(result.msg);

@@ -27,6 +27,24 @@ function logout() {
 async function getProduct(){
     const res=await fetch(`http://localhost:3000/api/getproduct/${id}`);
     console.log(res);
+    str=``;
+    const products=await res.json();
+    products.map((product)=>{
+        str+=`
+          <div class="prod">
+                   <img src=${product.images[0]} alt="image">
+                   <h4 id="name">${product.pname}</h4>
+                   <h2 id="price">${product.price}</h2>
+                   <h4  id="desc">${product.description}</h4>
+
+          </div>
+        `
+    })
+    document.getElementById("right1").innerHTML=str;
     
 }
 getProduct()
+function logout() {
+    localStorage.removeItem("Auth");
+    window.location.href="../pages/signin.html"
+}
