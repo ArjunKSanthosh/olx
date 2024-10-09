@@ -1,7 +1,7 @@
 const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
-let picture;
+let profile;
 let password;
 async function editUser(){
     const res=await fetch(`http://localhost:3000/api/getuser/${id}`);
@@ -119,8 +119,8 @@ document.getElementById("edit").addEventListener("submit",async(e)=>{
 
 async function pic(){
     console.log(document.getElementById("profile").files[0]);
-    picture=await convertToBase64(document.getElementById("profile").files[0]);
-    document.getElementById("pic4").src=picture;
+    profile=await convertToBase64(document.getElementById("profile").files[0]);
+    document.getElementById("pic4").src=profile;
 }
 function convertToBase64(file) {
     return new Promise((resolve,reject)=>{

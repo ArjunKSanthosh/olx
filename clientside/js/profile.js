@@ -7,7 +7,7 @@ console.log(res);
     
     const user=await res.json();
     console.log(user);
-    document.getElementById("sel").innerHTML=` <a href="./addp.html?id=${id}"">+ SELL</a>`;
+    document.getElementById("sel").innerHTML=` <a href="./addp.html?id=${id}">+ SELL</a>`;
 
     if(user.profile)
         document.getElementById("profile").src=user.profile;    
@@ -32,11 +32,11 @@ async function getProduct(){
     products.map((product)=>{
         str+=`
           <div class="prod">
-                   <img src=${product.images[0]} alt="image">
-                   <h4 id="name">${product.pname}</h4>
-                   <h2 id="price">${product.price}</h2>
-                   <h4  id="desc">${product.description}</h4>
-
+                    <img src="${product.images[0]}" alt="image">
+                    <h4 id="price">₹${product.price}</h4>
+                    <h3 id="name">${product.pname}</h3>
+                    <h4  id="desc">${product.description}</h4>
+                    <h4  id="loc">${product.place}</h4>
           </div>
         `
     })

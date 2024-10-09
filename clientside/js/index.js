@@ -1,25 +1,30 @@
-
+const url=window.location.href;
+const urlParams=new URLSearchParams(url.split("?")[1]);
+const id=urlParams.get("id");
 const value = localStorage.getItem("Auth");
 async function getProducts() {
-
-      const res=await fetch("http://localhost:3000/api/getproducts",{headers:{
+    
+    const res=await fetch("http://localhost:3000/api/getproducts",{headers:{
         "Authorization" : `Bearer ${value}`}})
         const result=await res.json();
         if(res.status==200){
             if(result.profile){
                 document.getElementById("profileImage").src=result.profile;
                 document.getElementById("proi").src=result.profile;
-
+                
             }
             document.getElementById("next").innerHTML=`<a href="./pages/profile.html?id=${result.id}"><button>View or Edit Profile</button></a>`;
+            document.getElementById("sell").innerHTML=` <a href="./pages/addp.html?id=${id}">+ SELL</a>`;
             str=``;
             result.products.map((product)=>{
                 str+=`
                <div class="prod">
                     <img src="${product.images[0]}" alt="image">
-                    <h4 id="name">${product.pname}</h4>
-                    <h2 id="price">${product.price}</h2>
+                    <h4 id="price">₹${product.price}</h4>
+                    <h3 id="name">${product.pname}</h3>
                     <h4  id="desc">${product.description}</h4>
+                    <h4  id="loc">${product.place}</h4>
+
 
             </div>
                 `
