@@ -114,7 +114,7 @@ button{
 
 .prod{
     width: 18%;
-    height: 35vh;
+    height: 37vh;
     object-fit: cover;
      border-radius: 10px;   
      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -123,8 +123,8 @@ button{
 .prod img{
     width: 95%; 
     height: 23vh;
-    padding-left: 9px;
-    padding-top: 10px;
+    padding-left: 7px;
+    padding-top: 6px;
     object-fit: cover;
     border-radius: 14px;
 }
