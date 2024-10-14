@@ -18,11 +18,10 @@ async function getSProduct() {
         const data=document.createElement("img");
         data.src=image;
         data.setAttribute("onmouseover", `change("${image}")`);
-        document.getElementById("smallimg").appendChild(data);
         i++;
     })
-    document.getElementById("edit").innerHTML=`<a href=./editp.html?id=${id}>Edit Product</a>`
-    document.getElementById("edit").innerHTML=`<a href="./prodedit.html?id=${id}">Edit</a>`
+    document.getElementById("buttons").innerHTML=`<a href="./prodedit.html?id=${id}"><button class="edit" id="edit">Edit</button></a>
+                        <button class="delete">Delete</button>`
     document.getElementById("description").innerText=product.description;
     document.getElementById("owner").innerText=seller.username.toUpperCase();
     document.getElementById("phone").textContent=seller.phone;
