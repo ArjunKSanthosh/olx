@@ -14,14 +14,15 @@ async function getSProduct() {
     document.getElementById("price").textContent=`₹${product.price}`;
     document.getElementById("image").src=product.images[0];
     let i=0;
-    // product.images.map((image)=>{
-    //     const data=document.createElement("img");
-    //     data.src=image;
-    //     data.setAttribute("onmouseover", `change("${image}")`);
-    //     document.getElementById("prodimg").appendChild(data);
-    //     i++;
-    // })
-    // document.getElementById("edit").innerHTML=`<a href=./editp.html?id=${id}>Edit Product</a>`
+    product.images.map((image)=>{
+        const data=document.createElement("img");
+        data.src=image;
+        data.setAttribute("onmouseover", `change("${image}")`);
+        document.getElementById("smallimg").appendChild(data);
+        i++;
+    })
+    document.getElementById("edit").innerHTML=`<a href=./editp.html?id=${id}>Edit Product</a>`
+    document.getElementById("edit").innerHTML=`<a href="./prodedit.html?id=${id}">Edit</a>`
     document.getElementById("description").innerText=product.description;
     document.getElementById("owner").innerText=seller.username.toUpperCase();
     document.getElementById("phone").textContent=seller.phone;

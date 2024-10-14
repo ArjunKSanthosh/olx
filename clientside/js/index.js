@@ -1,6 +1,8 @@
 const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
+console.log(id);
+
 const value = localStorage.getItem("Auth");
 async function getProducts() {
     
@@ -19,14 +21,16 @@ async function getProducts() {
             result.products.map((product)=>{
                 str+=`
                <div class="prod">
+               <a href="./pages/sellview.html?id=${product._id}">
                     <img src="${product.images[0]}" alt="image">
                     <h4 id="price">₹${product.price}</h4>
                     <h3 id="name">${product.pname}</h3>
                     <h4  id="desc">${product.description}</h4>
                     <h4  id="loc">${product.place}</h4>
 
-
+    </a>
             </div>
+        
                 `
             })
             document.getElementById("listprod").innerHTML=str;
@@ -40,7 +44,7 @@ async function getProducts() {
 getProducts();
 function profile() {
     document.getElementById("dropdown").innerHTML=`
-    <div class="up">></div>
+    <div class="up"></div>
     <div class="down">
                 <div class="image">
                     <img src="" alt="">

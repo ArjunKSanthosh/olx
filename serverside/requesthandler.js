@@ -134,3 +134,22 @@ export async function getSProduct(req,res) {
         res.status(404).send(error)
     }
 }
+export async function getSProducts(req,res) {
+    try {
+        const {_id}=req.params;
+        const product=await productSchema.findOne({_id});
+        res.status(200).send(product);
+    } catch (error) {
+        res.status(404).send(error)
+    }
+}
+export async function editProduct(req,res) {
+    try {
+        const {_id}=req.params;
+    const {...product}=req.body;
+    const data=await productSchema.updateOne({_id},{$set:{...product}});
+    res.status(201).send(data);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+}
