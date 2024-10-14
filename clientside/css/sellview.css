@@ -20,7 +20,7 @@ body {
         width: 50px;
         margin-left: 2%;
     }
-    .container {
+    .container2 {
         position: relative;
         display: inline-block;
     }
@@ -134,32 +134,43 @@ body {
 
 .product-image img {
     width: 80%;
-
     border-radius: 8px;
     height: 60vh;
 }
 
 .product-details {
-    flex: 2;
-    padding: 20px;
+    width: 70%;
+    padding-top: 10px;
+    padding-left: 20px;
 }
 
 .product-name {
+    width: 100%;
     font-size: 2em;
     margin: 0;
     color: #333;
 }
 .productname{
-    width: 50%;
+    width: 97%;
     height: 10vh;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin: auto;
     background-color: white;
     border-radius: 10px;
-}
+    padding-top: 30px;
+    padding-left: 20px;
 
-.owner-details, .product-description {
-    margin-top: 20px;
+}
+ .description {
+    margin-top: 5px;
+    width:97%;
+    height: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+   
 }
 
 .owner-details h2, .product-description h2 {
@@ -174,4 +185,34 @@ body {
 .owner-description, .product-description p {
     color: #777;
     line-height: 1.5;
+}
+.product{
+    display: flex;
+    width: 81.5%;
+    margin-left: 8.6%;
+}
+.price{
+    margin-top: 10px;
+    width: 94%;
+    height: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.right{
+    width: 30%;
+}
+.owner{
+    margin-top: 5px;
+    width: 94%;
+    height: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 30px;
 }
