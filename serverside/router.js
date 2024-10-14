@@ -12,6 +12,8 @@ router.route("/getuser/:id").get(prod.getUser)
 router.route("/addproduct").post(prod.addProduct);
 router.route("/edituser/:id").put(prod.editUser)
 router.route("/getproduct/:id").get(prod.getProduct)
+router.route("/getsproduct/:_id").get(prod.getSProduct);
+
 
 
 

@@ -32,11 +32,13 @@ async function getProduct(){
     products.map((product)=>{
         str+=`
           <div class="prod">
+          <a href="./sellview.html?id=${product._id}">
                     <img src="${product.images[0]}" alt="image">
                     <h4 id="price">₹${product.price}</h4>
                     <h3 id="name">${product.pname}</h3>
                     <h4  id="desc">${product.description}</h4>
                     <h4  id="loc">${product.place}</h4>
+          </a>
           </div>
         `
     })

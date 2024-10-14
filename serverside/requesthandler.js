@@ -125,3 +125,12 @@ export async function getProduct(req,res){
         res.status(404).send(error)
     }
 }
+export async function getSProduct(req,res) {
+    try {
+        const {_id}=req.params;
+        const product=await productSchema.findOne({_id});
+        res.status(200).send(product);
+    } catch (error) {
+        res.status(404).send(error)
+    }
+}
