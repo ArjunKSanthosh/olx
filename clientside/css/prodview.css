@@ -115,7 +115,7 @@ body {
     }
     
     .container1{
-        width: 60%;
+        width: 80%;
         margin: auto;
         background-color: #385170;
         border-radius: 8px;
@@ -142,9 +142,10 @@ body {
     object-position: center;
 }
 .product-image img {
-    width: 60%;
+    width: 65%;
+    border-radius: 8px;
     height: 60vh;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .product-details {
@@ -154,13 +155,13 @@ body {
 }
 
 .product-name {
-    width: 80%;
+    width: 100%;
     font-size: 2em;
     margin: 0;
     color: black;
 }
 .productname{
-    width: 95%;
+    width: 97%;
     height: 10vh;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: #10375c5f;
@@ -176,7 +177,7 @@ body {
 }
  .description {
     margin-top: 5px;
-    width:95%;
+    width:97%;
     height: 10vh;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: #10375c5f;
@@ -196,7 +197,7 @@ body {
 }
 .location{
     margin-top: 5px;
-    width:95%;
+    width:97%;
     height: 14vh;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: #10375c5f;
@@ -231,8 +232,8 @@ body {
 }
 .product{
     display: flex;
-    width: 60%;
-    margin-left:19%;
+    width: 81.5%;
+    margin-left: 8.6%;
 }
 .price{
     margin-top: 10px;
@@ -322,7 +323,7 @@ body {
 .edit{
     background-color:white;
     border: 1px solid blue;
-    padding: 10px 50px ;
+    padding: 10px 60px ;
     color: black;
     font-weight: bold;
     border-radius: 10px;
@@ -330,7 +331,7 @@ body {
 .delete{
     border-radius: 10px;
     background-color: white;
-    padding: 10px 50px ;
+    padding: 10px 60px ;
     color: black;  
     font-weight: bold;
     border:1px solid red;

@@ -21,8 +21,7 @@ async function getSProduct() {
         document.getElementById("smallimg").appendChild(data)
         i++;
     })
-    document.getElementById("buttons").innerHTML=`<a href="./prodedit.html?id=${id}"><button class="edit" id="edit">Edit</button></a>
-                        <button class="delete">Delete</button>`
+ 
     document.getElementById("description").innerText=product.description;
     document.getElementById("owner").innerText=seller.username.toUpperCase();
     document.getElementById("phone").textContent=seller.phone;
