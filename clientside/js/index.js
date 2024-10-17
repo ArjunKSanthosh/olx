@@ -26,6 +26,7 @@ async function getProducts() {
                     <h3 id="name">${product.pname}</h3>
                     <h4 id="price">₹${product.price}</h4>
                     <h4  id="loc">${product.place}</h4>
+                    
 
     </a>
             </div>

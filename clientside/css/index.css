@@ -97,7 +97,7 @@ padding: 0;
 .search img{
     background-color: black;
     height: 5.46vh;
-    width: 40px;
+    width: 45px;
 }
 button{
     padding: 8px 10px;
@@ -106,22 +106,22 @@ button{
     border: 5px solid orange;
 }
 .listprod{
-    width: 100%;
+    width: 80%;
     height:auto;
-
+margin: auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .prod{
-    width: 13%;
+    width: 14%;
     height: 33vh;
     margin: 1%;
     object-fit: cover;
-     border-radius: 10px;   
+     border-radius: 7px;   
      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-     border-bottom: 1px solid yellow;
+     border-bottom: 3px solid red;
      transition: 0.5s;
     }
 .prod:hover{
@@ -131,10 +131,10 @@ button{
 .prod img{
     width: 95%; 
     height: 23vh;
-    padding-left: 7px;
+    padding-left: 5px;
     padding-top: 6px;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 7px;
 }
 .prod h4{
     padding-left: 16px;

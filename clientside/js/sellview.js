@@ -28,6 +28,7 @@ async function getSProduct() {
     document.getElementById("phone").textContent=seller.phone;
     document.getElementById("mail").textContent=seller.email;
     document.getElementById("place").textContent=seller.place;
+    document.getElementById("profile").src=seller.profile;
     console.log(seller.address);
     document.getElementById("address").textContent=seller.address;
     document.getElementById("pincode").textContent=seller.pincode;
