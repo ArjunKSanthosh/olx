@@ -14,10 +14,8 @@ router.route("/edituser/:id").put(prod.editUser)
 router.route("/getproduct/:id").get(prod.getProduct)
 router.route("/getsproduct/:_id").get(prod.getSProduct);
 router.route("/getsproducts/:_id").get(prod.getSProducts);
-router.route("/editproduct/:_id").put(prod.editProduct)
-
-
-
-
+router.route("/editproduct/:_id").put(prod.editProduct);
+// router.route("/addwish").post(prod.addWish);
+// router.route("/deletewlist/:id").delete(prod.deleteWish);
 
 export default router;

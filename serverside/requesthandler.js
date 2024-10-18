@@ -12,11 +12,11 @@ export async function getProducts(req,res) {
             const _id = req.user.userId;
             const user = await userSchema.findOne({_id});
             const products1=await productSchema.find({sellerId:{$ne:_id}});
-            const wlist=await listSchema.find({buyerId:_id});
-            res.status(200).send({products1,profile:user.profile,id:_id,wlist})
+            // const wlist=await listSchema.find({buyerId:_id});
+            return res.status(200).send({products1,profile:user.profile,id:_id})
         }
         else{
-            return res.status(404).send({products,msg:"Login for better user experience"})
+            return res.status(403).send({products,msg:"Login for better user experience"})
         }
 
         
@@ -156,3 +156,30 @@ export async function editProduct(req,res) {
         res.status(404).send(error);
     }
 }
+// export async function addWish(req,res){
+//     try {
+//         const {...wishlist}=req.body;
+
+//         listSchema
+//             .create({...wishlist})
+//             .then(()=>{
+//                 return res.status(201).send({msg:success})
+//             })
+//             .catch((error)=>{
+//                 return res.status(404).send({msg:"List not added"})
+//             })
+//     } catch (error) {
+//         res.status(404).send(error);
+//     }
+// }
+// export async function deleteWish(req,res){
+//     try {
+//         const{id}=req.params;
+//         const result=await listSchema.deleteOne({"product._id":id})
+//         console.log(result);
+//         return res.status(201).send({msg:deleted});
+//     }
+//     catch(error){
+//         return res.status(404).send(error);
+//     }
+// }
