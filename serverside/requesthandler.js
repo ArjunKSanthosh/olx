@@ -3,6 +3,16 @@ import productSchema from './models/product.model.js'
 import listSchema  from './models/wishlist.model.js'
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
+import nodemailer from "nodemailer"
+const transporter = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port:2525,
+    secure: false, // true for port 465, false for other ports
+    auth: {
+      user: "378a61f3f1ec93",
+      pass: "3dffcf6d10e7ac",
+    },
+  });
 
 const {sign}=pkg;
 
@@ -182,9 +192,53 @@ export async function deleteWish(req,res){
         const{id}=req.params;
         const result=await listSchema.deleteOne({"product._id":id})
         console.log(result);
-        return res.status(201).send({msg:deleted});
+        return res.status(201).send({msg:"deleted"});
     }
     catch(error){
         return res.status(404).send(error);
     }
+}
+export async function forgetPassword(req,res) {
+    const {email}=req.body;
+//     console.log(email);
+    
+    const user=await userSchema.findOne({email})
+    if(!user)
+        return res.status(403).send({msg:"User doesn't exist"})
+    const otp=Math.floor(Math.random()*1000000);
+    const update=await userSchema.updateOne({email},{$set:{otp:otp}})
+    console.log(update);
+     // send mail with defined transport object
+    const info = await transporter.sendMail({
+    from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+    to: "bar@example.com, baz@example.com", // list of receivers
+    subject: "Hello ✔", // Subject line
+    text: "Hello world?", // plain text body
+    html: `<h1>${otp}</h1>`, // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
+  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+  return res.status(201).send({email});
+}
+export async function otpCheck(req,res){
+    const{email,otp}=req.body;
+    
+    const check=await userSchema.findOne({$and:[{email:email},{otp:otp}]})
+    if(!check)
+        return res.status(403).send({msg:"OTP does not match"})
+    return res.status(201).send({msg:"OTP matched succesfully"})
+}
+export async function resetPassword(req,res){
+    const{email,password}=req.body;
+    const update=await userSchema.updateOne({email},{$set:{otp:""}});
+    bcrypt.hash(password,10).then((hashedPassword)=>{
+     userSchema.updateOne({email},{$set:{password:hashedPassword}}).then(()=>{
+        return res.status(200).send({msg:"Success"})
+     }).catch((error)=>{
+        return res.status(404).send({msg:error});
+     })
+    }).catch((error)=>{
+        return res.status(404).send({msg:error});
+    })
 }
