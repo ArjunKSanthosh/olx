@@ -1,5 +1,6 @@
 import userSchema from './models/user.model.js'
 import productSchema from './models/product.model.js'
+import listSchema  from './models/wishlist.model.js'
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
 
@@ -156,30 +157,34 @@ export async function editProduct(req,res) {
         res.status(404).send(error);
     }
 }
-// export async function addWish(req,res){
-//     try {
-//         const {...wishlist}=req.body;
+export async function addWish(req,res){
+    try {
+        const {...wishlist}=req.body;
+        console.log(wishlist);
+        
 
-//         listSchema
-//             .create({...wishlist})
-//             .then(()=>{
-//                 return res.status(201).send({msg:success})
-//             })
-//             .catch((error)=>{
-//                 return res.status(404).send({msg:"List not added"})
-//             })
-//     } catch (error) {
-//         res.status(404).send(error);
-//     }
-// }
-// export async function deleteWish(req,res){
-//     try {
-//         const{id}=req.params;
-//         const result=await listSchema.deleteOne({"product._id":id})
-//         console.log(result);
-//         return res.status(201).send({msg:deleted});
-//     }
-//     catch(error){
-//         return res.status(404).send(error);
-//     }
-// }
+        listSchema
+            .create({...wishlist})
+            .then(()=>{
+                console.log("success");
+                
+                return res.status(201).send({msg:"success"})
+            })
+            .catch((error)=>{
+                return res.status(404).send({msg:"List not added"})
+            })
+    } catch (error) {
+        res.status(404).send(error);
+    }
+}
+export async function deleteWish(req,res){
+    try {
+        const{id}=req.params;
+        const result=await listSchema.deleteOne({"product._id":id})
+        console.log(result);
+        return res.status(201).send({msg:deleted});
+    }
+    catch(error){
+        return res.status(404).send(error);
+    }
+}
