@@ -14,6 +14,8 @@ async function getProducts() {
             buyerId=result.id;
             document.getElementById("next").innerHTML=`<a href="./pages/profile.html?id=${result.id}"><button>View or Edit Profile</button></a>`;
             document.getElementById("sell").innerHTML=` <a href="./pages/addp.html?id=${result.id}">+ SELL</a>`;
+            console.log(product);
+            
             str=``;
             result.products1.map((product)=>{
                 str+=`
@@ -157,10 +159,8 @@ async function toggleHeart(heartElement,id) {
                   console.log(res);
                   if(res.status==201){
                       alert("Deleted")
-                      window.location.href="../index.html";
                   }else{
                       alert("error");
-                      window.location.href="../index.html";
                   }
               }). catch ((error)=>{
                   console.log(error);
