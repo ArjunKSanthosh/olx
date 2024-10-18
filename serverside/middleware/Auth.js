@@ -17,6 +17,7 @@ export default async function Auth(req,res,next) {
         
     }
     catch{
-        return res.status(403).send({ msg: "Session expired" });
-    }
+        req.user=null;
+        next(); 
+        }
 }   

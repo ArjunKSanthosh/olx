@@ -7,15 +7,18 @@ const {sign}=pkg;
 
 export async function getProducts(req,res) {
     try {
-        console.log(req.user.userId);
-        const _id = req.user.userId;
-        const user = await userSchema.findOne({_id});
-        console.log(user);
-        if(!user) 
-            return res.status(403).send({msg:"Unauthorized access"})
         const products=await productSchema.find();
+        if(req.user!==null) {
+            const _id = req.user.userId;
+            const user = await userSchema.findOne({_id});
+            const products1=await productSchema.find({sellerId:{$ne:_id}});
+            const wlist=await listSchema.find({buyerId:_id});
+            res.status(200).send({products1,profile:user.profile,id:_id,wlist})
+        }
+        else{
+            return res.status(404).send({products,msg:"Login for better user experience"})
+        }
 
-        res.status(200).send({products,id:user._id,profile:user.profile})
         
     } catch (error) {
         res.status(404).send({msg:error})
