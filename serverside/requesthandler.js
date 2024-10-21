@@ -16,6 +16,9 @@ const transporter = nodemailer.createTransport({
 
 const {sign}=pkg;
 
+
+//....................................To get details of products without and with sigin ................................................... 
+
 export async function getProducts(req,res) {
     try {
         const products=await productSchema.find();
@@ -36,6 +39,9 @@ export async function getProducts(req,res) {
     }
 }
 
+
+//..............................To get user deatails................................................
+
 export async function getUser(req,res) {
     try {
         const {id}=req.params;
@@ -45,6 +51,9 @@ export async function getUser(req,res) {
         res.status(404).send(error)
     }
 }
+
+//..................................to edit user details..................................................
+
 export async function editUser(req,res) {
     try {
         const {id}=req.params;
@@ -57,6 +66,8 @@ export async function editUser(req,res) {
         res.status(404).send(error)
     }
 }
+//................................................to signup.....................................
+
 export async function signUp(req,res) {
     try{
         const {email,username,password,cpassword,place,profile,address,phone,pincode} = req.body;
@@ -88,6 +99,7 @@ export async function signUp(req,res) {
     }
     
 }
+//........................Function for signin...................................
 
 export async function signIn(req,res) {
     console.log(req.body);
@@ -109,6 +121,8 @@ export async function signIn(req,res) {
     return res.status(200).send({msg:"successfully logged in",token})
 }
 
+//...........................To add a product......................................................................
+
 export async function addProduct(req,res){
     try {
         const {pname,price,category,description,sellerId,place,images,address,phone,pincode} = req.body;
@@ -129,6 +143,7 @@ export async function addProduct(req,res){
     }
 }
 
+//....................... to get the product of a specific seller.To get product details of a specific seller in profile..............
 
 export async function getProduct(req,res){
     try {
@@ -139,6 +154,8 @@ export async function getProduct(req,res){
         res.status(404).send(error)
     }
 }
+//To  get the product details of a specific product for seller
+
 export async function getSProduct(req,res) {
     try {
         const {_id}=req.params;
@@ -157,6 +174,9 @@ export async function getSProducts(req,res) {
         res.status(404).send(error)
     }
 }
+
+//.......................................To edit a product.....................................................
+
 export async function editProduct(req,res) {
     try {
         const {_id}=req.params;
@@ -167,6 +187,9 @@ export async function editProduct(req,res) {
         res.status(404).send(error);
     }
 }
+
+//.....................................To add wishlist.............................................................
+
 export async function addWish(req,res){
     try {
         const {...wishlist}=req.body;
@@ -187,6 +210,10 @@ export async function addWish(req,res){
         res.status(404).send(error);
     }
 }
+
+
+//........................................to remove product from  the wishlist.........................
+
 export async function deleteWish(req,res){
     try {
         const{id}=req.params;
@@ -198,6 +225,8 @@ export async function deleteWish(req,res){
         return res.status(404).send(error);
     }
 }
+//............................Function for forget password......................................................
+
 export async function forgetPassword(req,res) {
     const {email}=req.body;
 //     console.log(email);
@@ -221,6 +250,8 @@ export async function forgetPassword(req,res) {
   // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
   return res.status(201).send({email});
 }
+//.........................Function for match otp.............................................................
+
 export async function otpCheck(req,res){
     const{email,otp}=req.body;
     
@@ -229,6 +260,9 @@ export async function otpCheck(req,res){
         return res.status(403).send({msg:"OTP does not match"})
     return res.status(201).send({msg:"OTP matched succesfully"})
 }
+
+//.......................Function for reset password..............................................................
+
 export async function resetPassword(req,res){
     const{email,password}=req.body;
     const update=await userSchema.updateOne({email},{$set:{otp:""}});
