@@ -276,3 +276,23 @@ export async function resetPassword(req,res){
         return res.status(404).send({msg:error});
     })
 }
+export async function booking(req,res) {
+    try {
+        if (req.user!==null) {
+            const _id = req.user.userId;
+            const {product,date} = req.body;
+            const buyer=await userSchema.findOne({_id},{username:1,place:1,phone:1});
+            bookingSchema.create({sellerId:product.sellerId,buyerId:_id,date,buyer,product})
+            .then(()=>{
+                return res.status(201).send({msg:"Booking Successfull"});
+            })
+            .catch((error)=>{
+                return res.status(404).send({msg:"product not added"});
+            })
+        }else{
+            return res.status(403).send({products,msg:"Something went wrong"});
+        }   
+    } catch (error) {
+        res.status(404).send({msg:"error"});
+    }
+}

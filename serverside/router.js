@@ -20,5 +20,6 @@ router.route("/deletewlist/:id").delete(prod.deleteWish);
 router.route("/otp").post(prod.forgetPassword);
 router.route("/otpcheck").post(prod.otpCheck);
 router.route("/resetpassword").post(prod.resetPassword);
+router.route("/setBooking").post(Auth,prod.booking);
 
 export default router;
