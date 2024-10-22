@@ -1,6 +1,7 @@
 import userSchema from './models/user.model.js'
 import productSchema from './models/product.model.js'
 import listSchema  from './models/wishlist.model.js'
+import bookingSchema from "./models/book.model.js"
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
 import nodemailer from "nodemailer"
@@ -277,11 +278,16 @@ export async function resetPassword(req,res){
     })
 }
 export async function booking(req,res) {
+    
+    
     try {
         if (req.user!==null) {
             const _id = req.user.userId;
             const {product,date} = req.body;
+            
             const buyer=await userSchema.findOne({_id},{username:1,place:1,phone:1});
+        
+
             bookingSchema.create({sellerId:product.sellerId,buyerId:_id,date,buyer,product})
             .then(()=>{
                 return res.status(201).send({msg:"Booking Successfull"});
