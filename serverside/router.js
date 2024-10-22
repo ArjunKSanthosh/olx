@@ -21,5 +21,10 @@ router.route("/otp").post(prod.forgetPassword);
 router.route("/otpcheck").post(prod.otpCheck);
 router.route("/resetpassword").post(prod.resetPassword);
 router.route("/setBooking").post(Auth,prod.booking);
+router.route("/getubookings/:buyerId").get(prod.getUBookings);
+router.route("/getsbookings/:sellerId").get(prod.getSBookings);
+router.route("/deletebooking").delete(prod.deleteBooking);
+router.route("/deleteaccount/:_id").post(prod.deleteAccount);
+router.route("/accountotp").delete(prod.accountOTP);
 
 export default router;

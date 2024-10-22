@@ -1,10 +1,12 @@
 const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
+const value=localStorage.getItem("Auth")
 const id=urlParams.get("id");
 images=[];
+let product;
 async function getSProduct() {
     const res=await fetch(`http://localhost:3000/api/getsproduct/${id}`);
-    const product=await res.json();
+    product=await res.json();
     const res2=await fetch(`http://localhost:3000/api/getuser/${product.sellerId}`);
     
     const seller=await res2.json();
@@ -33,6 +35,35 @@ async function getSProduct() {
     
 }
 getSProduct();
+
 function change(a) {
     document.getElementById("image").src=a;
+}
+async function book() {
+
+    const currentDate = new Date();
+    const date=String(currentDate.getDate()).padStart(2, '0')+"-"+String(currentDate.getMonth() + 1).padStart(2, '0')+"-"+currentDate.getFullYear();
+
+
+
+        fetch("http://localhost:3000/api/setBooking",{
+            method:"POST",
+            headers:{"Content-Type":"application/json","Authorization" : `Bearer ${value}`},
+            body:JSON.stringify({product,date})
+        }).then(async (res)=>{
+            const result= await res.json();
+            if(res.status==201){
+                alert(result.msg)
+            }
+            else if (res.status==403){
+                alert(result.msg)
+            }
+            else{
+                alert(result.msg)
+            }
+            
+        }).catch((error)=>{
+            console.log(error);
+            
+        });
 }

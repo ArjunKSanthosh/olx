@@ -355,3 +355,30 @@ a{
 a:hover{
     color: white; 
 }
+.button-group {
+    text-align: center; /* Center the button */
+    margin: 20px; /* Add some space around the button group */
+}
+
+.buy-now {
+    background-color: #007bff; /* Primary color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px 30px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Subtle shadow */
+}
+
+.buy-now:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+}
+
+.buy-now:active {
+    transform: translateY(1px); /* Slightly push down when clicked */
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* Reduced shadow when clicked */
+}

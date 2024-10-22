@@ -18,6 +18,8 @@ console.log(res);
     document.getElementById("pincode").textContent=user.pincode;
     document.getElementById("phone").textContent=user.phone;
     document.getElementById("edit").innerHTML=`<button ><a href="../pages/edit.html?id=${user._id}">Edit Profile</a></button>`
+    document.getElementById("books").innerHTML=`<a href="../pages/sellerbooking.html?id=${user._id}">BOOKINGS</a>`
+
 }
 getUser();
 function logout() {
@@ -44,6 +46,19 @@ async function getProduct(){
     })
     document.getElementById("right1").innerHTML=str;
     
+}
+async function deleteAccount() {
+    const res=await fetch(`http://localhost:3000/api/deleteaccount/${id}`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"}
+    });
+    const result=await res.json();
+    if(res.status==201){
+        localStorage.setItem("id",`${result._id}`);
+        window.location.href="../pages/deleteAcc.html";
+    }else{
+        alert(result.msg)
+    }
 }
 
 document.getElementById("category").addEventListener('click',async(e)=>{   
