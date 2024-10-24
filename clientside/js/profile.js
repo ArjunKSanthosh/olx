@@ -18,7 +18,7 @@ console.log(res);
     document.getElementById("pincode").textContent=user.pincode;
     document.getElementById("phone").textContent=user.phone;
     document.getElementById("edit").innerHTML=`<button ><a href="../pages/edit.html?id=${user._id}">Edit Profile</a></button>`
-    document.getElementById("books").innerHTML=`<a href="../pages/sellerbooking.html?id=${user._id}">BOOKINGS</a>`
+    document.getElementById("books").innerHTML=`<a href="../pages/sellerbooking.html?id=${user._id}" class="anch">BOOKINGS</a>`
 
 }
 getUser();

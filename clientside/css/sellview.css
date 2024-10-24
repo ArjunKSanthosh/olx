@@ -139,11 +139,16 @@ body {
     height: 100px;
     object-fit: cover;
     object-position: center;
+    margin-bottom: 51%;
+    box-shadow: rgba(255, 254, 254, 0.35) 0px 5px 15px;
+    border-radius: 10px;
 }
 .product-image img {
     width: 60%;
     height: 60vh;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: black;
+    border-radius: 10px;
 }
 
 .product-details {

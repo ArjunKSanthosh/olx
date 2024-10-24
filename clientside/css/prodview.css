@@ -33,6 +33,7 @@ body {
         cursor: pointer;
         border-radius: 50%;
         object-fit: cover;
+        
     }
     .profile-image img{
         height: 100%;
@@ -128,18 +129,23 @@ body {
     border-radius: 10px;
     display: flex;
     height: 60vh;
+    background-color: black;
+    width: 50%;
 }
 .smallimg{
     margin-left: 2%;
     width: 100px;
+    height: 60vh;
     display: flex;
     flex-direction: column;
+
 }
 #smallimg img{
     width: 100px;
     height: 100px;
     object-fit: cover;
     object-position: center;
+    margin-bottom: 50%;
 }
 .product-image img {
     width: 65%;

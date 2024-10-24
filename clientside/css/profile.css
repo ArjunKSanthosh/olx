@@ -132,7 +132,7 @@ a{
     justify-content: space-between;
 }
 
-.bar button{
+.buty{
     padding: 8px 10px;
     border-radius: 50px;
     font-weight: bolder;
@@ -144,11 +144,23 @@ a{
 }
 .cat{
     margin-left: 50%;
-    background-color: black;
-    width: 25%;
+    background-color: navy;
+    width: 20%;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#books a{
+    color: white;
+}
+#books {
+    height: 40px;
+    width: 120px;
+    background: navy    ; 
+    color: white;
+    margin-left: 4%;
+    font-weight: bold;
+    border-radius: 10px;
 }
